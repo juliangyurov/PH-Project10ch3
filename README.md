@@ -1,28 +1,31 @@
-## [Project 9: Grand Central Dispatch](https://www.hackingwithswift.com/read/9/overview)
+## [Project 10ch3: Names to Faces](https://www.hackingwithswift.com/read/10/overview)
 Written by [Paul Hudson](https://www.hackingwithswift.com/about)  ![twitter16](https://github.com/juliangyurov/PH-Project6a/assets/13259596/445c8ea0-65c4-4dba-8e1f-3f2750f0ef51)
   [@twostraws](https://twitter.com/twostraws)
 
-
-**Description:** Learn how to run complex tasks in the background with GCD.
+**Description:** Get started with UICollectionView and the photo library.
 
 - Setting up
 
-- Why is locking the UI bad?
+- Designing UICollectionView cells
 
-- GCD 101: async()
+- UICollectionView data sources
 
-- Back to the main thread: DispatchQueue.main
+- Importing photos with UIImagePickerController
 
-- Easy GCD using performSelector(inBackground:)
+- Custom subclasses of NSObject
+
+- Connecting up the people
 
 - Wrap up
 
-## [Review what you learned](https://www.hackingwithswift.com/review/hws/project-9-grand-central-dispatch)
+
+
+## [Review what you learned](https://www.hackingwithswift.com/review/hws/project-10-names-to-faces)
 
 **Challenge**
 
-1. Modify project 1 so that loading the list of NSSL images from our bundle happens in the background. Make sure you call reloadData() on the table view once loading has finished!
+1. Add a second UIAlertController that gets shown when the user taps a picture, asking them whether they want to rename the person or delete them.
 
-2. Modify project 8 so that loading and parsing a level takes place in the background. Once you’re done, make sure you update the UI on the main thread!
+2.2Try using picker.sourceType = .camera when creating your image picker, which will tell it to create a new image by taking a photo. This is only available on devices (not on the simulator) so you might want to check the return value of UIImagePickerController.isSourceTypeAvailable() before trying to use it!
 
-3. Modify project 7 so that your filtering code takes place in the background. This filtering code was added in one of the challenges for the project, so hopefully you didn’t skip it!
+3. Modify project 1 so that it uses a collection view controller rather than a table view controller. I recommend you keep a copy of your original table view controller code so you can refer back to it later on.
