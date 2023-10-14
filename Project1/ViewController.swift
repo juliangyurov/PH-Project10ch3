@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UITableViewController {
+class ViewController: UICollectionViewController {
     
     var pictures = [String]()
 
@@ -36,29 +36,48 @@ class ViewController: UITableViewController {
             
             DispatchQueue.main.async {
                 [weak self] in
-                self?.tableView.reloadData()
+                self?.collectionView.reloadData()
             }
         }
  
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
             vc.selectedImage = pictures[indexPath.row]
             vc.selectedNumber = indexPath.row
             vc.numberImages = pictures.count
             navigationController?.pushViewController(vc, animated: true)
         }
-            
     }
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
+//            vc.selectedImage = pictures[indexPath.row]
+//            vc.selectedNumber = indexPath.row
+//            vc.numberImages = pictures.count
+//            navigationController?.pushViewController(vc, animated: true)
+//        }
+//
+//    }
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return pictures.count
     }
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Picture", for: indexPath)
-        cell.textLabel?.text = pictures[indexPath.row]
+//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return pictures.count
+//    }
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Picture", for: indexPath)
+        let label = cell.contentView.subviews.last as? UILabel
+        label?.text  = pictures[indexPath.row]
         return cell
     }
+
+//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "Picture", for: indexPath)
+//        cell.textLabel?.text = pictures[indexPath.row]
+//        return cell
+//    }
     
     @objc func shareTapped(){
         let vc = UIActivityViewController(activityItems: ["Check my new app \"Storm Viewer\""], applicationActivities: [])
