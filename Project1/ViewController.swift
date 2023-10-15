@@ -67,9 +67,18 @@ class ViewController: UICollectionViewController {
 //        return pictures.count
 //    }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Picture", for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Picture", for: indexPath) as? PictureCell else{ fatalError("Cannot dequeue reusable cell") }
+        
         let label = cell.contentView.subviews.last as? UILabel
         label?.text  = pictures[indexPath.row]
+        
+        cell.imageView.image = UIImage(named: pictures[indexPath.row])
+        
+        cell.imageView.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
+        cell.imageView.layer.borderWidth = 2
+        cell.imageView.layer.cornerRadius = 3
+        cell.layer.cornerRadius = 7
+        
         return cell
     }
 

@@ -23,7 +23,7 @@
                             <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Picture" id="DYG-od-D1A">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Picture" id="DYG-od-D1A" customClass="PictureCell" customModule="Project1" customModuleProvider="target">
                                 <rect key="frame" x="10" y="10" width="120" height="180"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -46,6 +46,10 @@
                                 </view>
                                 <color key="backgroundColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <size key="customSize" width="120" height="180"/>
+                                <connections>
+                                    <outlet property="imageView" destination="6ay-zf-ZVf" id="7KF-j1-b8G"/>
+                                    <outlet property="name" destination="piK-5x-C4G" id="3rw-x6-ysy"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
